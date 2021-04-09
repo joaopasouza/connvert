@@ -1,0 +1,24 @@
+.site-layout-wrapper {
+  height: 100vh;
+}
+
+.logo {
+  height: 32px;
+  margin: 16px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.site-layout-header {
+  background: #fff;
+  padding: 0;
+}
+
+.site-layout-content {
+  overflow-y: scroll;
+}
+
+.site-layout-main {
+  background: #fff;
+  margin: 24px 16px;
+  padding: 24px;
+}
