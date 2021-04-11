@@ -6,8 +6,9 @@ const apiOne = axios.create({
 
 const apiTwo = axios.create({
   baseURL: 'https://provadev.xlab.digital/api/v1',
+  params: {
+    uuid: 'ea6e0883-2b37-4c1a-be1f-4c71f19352b9',
+  },
 });
 
 export { apiOne, apiTwo };
-
-// ea6e0883-2b37-4c1a-be1f-4c71f19352b9
