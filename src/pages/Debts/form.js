@@ -26,16 +26,18 @@ function DebtForm() {
     loading,
     setVisible,
     saveDebt,
+    resetFormData,
   } = useContext(DebtContext);
 
   const handleCancel = () => {
+    resetFormData();
     setVisible(false);
   };
 
   return (
     <Formik
       initialValues={formData}
-      onSubmit={async (data, { resetForm }) => {
+      onSubmit={async (data) => {
         const response = await saveDebt(data);
         if (response.success) {
           notification.open({
@@ -43,7 +45,7 @@ function DebtForm() {
             message: 'Sucesso',
             description: 'Registro salvo com sucesso.',
           });
-          resetForm();
+          resetFormData();
         }
       }}
       validationSchema={schema}

@@ -26,6 +26,7 @@ export const DebtContext = createContext({
   editDebt: async (f) => f,
   saveDebt: async (f) => f,
   destroyDebt: async (f) => f,
+  resetFormData: () => {},
 });
 
 function DebtProvider({ children }) {
@@ -65,11 +66,12 @@ function DebtProvider({ children }) {
 
     if (data.id) {
       response = await updateDebt(data);
+      setLoading(false);
+      setFormData(initialValues);
+      setVisible(false);
+      fetchDebts();
     } else {
       response = await insertDebt(data);
-    }
-
-    if (response.success) {
       setLoading(false);
       setFormData(initialValues);
       setVisible(false);
@@ -86,6 +88,10 @@ function DebtProvider({ children }) {
     }
 
     return response;
+  };
+
+  const resetFormData = () => {
+    setFormData(initialValues);
   };
 
   useEffect(() => {
@@ -105,6 +111,7 @@ function DebtProvider({ children }) {
         editDebt,
         saveDebt,
         destroyDebt,
+        resetFormData,
       }}
     >
       {children}

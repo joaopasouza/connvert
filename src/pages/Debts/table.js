@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import moment from 'moment';
 
-import { Button, Table, Space, Modal } from 'antd';
+import { Button, Table, Space, Modal, Row, Col, PageHeader } from 'antd';
 import {
   PlusOutlined,
   EditOutlined,
@@ -96,14 +96,22 @@ function DebtList() {
 
   return (
     <div>
-      <Button
-        type="primary"
-        htmlType="button"
-        icon={<PlusOutlined />}
-        onClick={() => handleOpenModal()}
-      >
-        Adicionar
-      </Button>
+      <Row>
+        <Col flex="auto">
+          <PageHeader title="Gestão de Dívidas" />
+        </Col>
+
+        <Col flex="100px">
+          <Button
+            type="primary"
+            htmlType="button"
+            icon={<PlusOutlined />}
+            onClick={() => handleOpenModal()}
+          >
+            Adicionar
+          </Button>
+        </Col>
+      </Row>
 
       <Table
         dataSource={debts}
